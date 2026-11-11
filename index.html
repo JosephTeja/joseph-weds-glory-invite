@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f6ef" />
+    <meta name="description" content="Join us for a celebration of love." />
+    <title>Our Wedding Celebration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar"><a class="monogram" id="monogram" href="#home" aria-label="Back to top">♡</a><a class="top-link" href="#rsvp">Kindly reply <span aria-hidden="true">↗</span></a></header>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-photo" role="img" aria-label="A romantic garden wedding scene"></div>
+        <div class="hero-wash"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">WITH FULL HEARTS, AND OUR FAMILIES</p>
+          <h1>We’re getting<br /><em>married.</em></h1>
+          <p class="hero-names" id="hero-names">Your Name <span>＆</span> Partner’s Name</p>
+          <p class="hero-date" id="hero-date">A day to remember · coming soon</p>
+          <a class="round-link" href="#our-day" aria-label="Discover the celebration">↓</a>
+        </div>
+        <div class="hero-caption">A LITTLE NOTE FROM US, WITH LOVE</div>
+      </section>
+
+      <section class="intro section-wrap" id="our-day">
+        <div class="intro-mark" aria-hidden="true">✝</div>
+        <p class="eyebrow">A BLESSING WE CAN’T WAIT TO SHARE</p>
+        <h2>Two hearts, one<br /><em>very happy day.</em></h2>
+        <p class="intro-body">We found our favourite person in each other, and we thank God for the love that brought us here. We’d be so happy to have our favourite people with us as we begin this new chapter.</p>
+        <p class="scripture">“And now these three remain: faith, hope and love. But the greatest of these is love.” <span>— 1 Corinthians 13:13</span></p>
+        <div class="countdown" aria-label="Countdown to the wedding"><div><strong id="days">—</strong><span>days</span></div><i></i><div><strong id="hours">—</strong><span>hours</span></div><i></i><div><strong id="minutes">—</strong><span>minutes</span></div><i></i><div><strong id="seconds">—</strong><span>seconds</span></div></div>
+        <p class="countdown-note" id="countdown-note">Our countdown starts as soon as we pick the date.</p>
+      </section>
+
+      <section class="events-section">
+        <div class="section-wrap">
+          <p class="eyebrow">GIVE THANKS, GATHER, CELEBRATE</p>
+          <h2>We’d love to have<br /><em>you with us.</em></h2>
+          <div class="event-grid" id="event-grid"></div>
+        </div>
+      </section>
+
+      <section class="gallery-section section-wrap">
+        <div class="gallery-heading"><div><p class="eyebrow">LITTLE MOMENTS, BIG LOVE</p><h2>A few of <em>our favourites.</em></h2></div><p>Our photo album is getting dressed up. We’ll add our favourite memories here soon.</p></div>
+        <div class="gallery" id="gallery"></div>
+      </section>
+
+      <section class="rsvp-section" id="rsvp">
+        <div class="rsvp-shell">
+          <div class="rsvp-intro"><p class="eyebrow">A LITTLE ENVELOPE, WITH LOVE</p><h2>We saved<br /> you a <em>seat.</em></h2><p>There’s a tiny question tucked inside. Open when ready — we promise it’s easier than choosing an outfit.</p><div class="rsvp-stamp" aria-hidden="true">SEALED<br />WITH<br />LOVE <span>♡</span></div></div>
+          <div class="envelope-wrap" id="envelope-wrap">
+            <div class="envelope-art" aria-hidden="true"><div class="envelope-flap"></div><div class="envelope-seal">J<span>♡</span>G</div><div class="envelope-lines"></div></div>
+            <button class="envelope-open" id="envelope-open" type="button" aria-expanded="false" aria-controls="rsvp-form"><span class="envelope-kicker">JOSEPH &amp; GLORY · DECEMBER 2026</span><span class="envelope-title">A little note<br /><em>for you</em></span><span class="envelope-prompt">TAP TO OPEN <b>↓</b></span></button>
+            <form id="rsvp-form" class="rsvp-form" hidden>
+              <p class="letter-greeting">Dear VIP (Very Important Person),</p>
+              <p class="letter-copy">This is the part where you make our day with one tiny click. No essay, no surprise exam, and absolutely no family WhatsApp poll. Are you in? ♡</p>
+              <label>Your name <span class="required">*</span><input name="guestName" autocomplete="name" placeholder="The name we know you by" required maxlength="120" /></label>
+              <fieldset><legend>Will you join us for the marriage? <span class="required">*</span></legend><div class="choice-row"><label class="choice"><input type="radio" name="weddingAttendance" value="yes" required /><span>Yes, with all my heart ♡</span></label><label class="choice"><input type="radio" name="weddingAttendance" value="no" /><span>Sending love from afar</span></label></div><p class="rsvp-reaction" id="wedding-reaction" aria-live="polite"></p></fieldset>
+              <fieldset><legend>And the reception? <span class="required">*</span></legend><div class="choice-row"><label class="choice"><input type="radio" name="receptionAttendance" value="yes" required /><span>Yes, count me in ♡</span></label><label class="choice"><input type="radio" name="receptionAttendance" value="no" /><span>My heart says yes, but my calendar says no 😅</span></label></div><p class="rsvp-reaction" id="reception-reaction" aria-live="polite"></p></fieldset>
+              <label>Leave us a tiny note <span class="optional">(optional)</span><textarea name="message" rows="2" maxlength="1000" placeholder="A wish, a joke, a happy squeal — all welcome."></textarea></label>
+              <button class="submit-button" type="submit">Send our love back <span aria-hidden="true">↗</span></button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              <p class="privacy-note">Your reply is just for us and the happy-day planning.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="footer-heart">♡</div><p>Can’t wait to celebrate with you.</p><a href="#home" class="footer-names" id="footer-names">Your Name & Partner’s Name</a><small>MADE WITH ALL OUR LOVE</small></footer>
+  </body>
+</html>

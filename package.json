@@ -1,0 +1,8 @@
+{
+  "name": "joseph-and-glory-wedding-invite",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
