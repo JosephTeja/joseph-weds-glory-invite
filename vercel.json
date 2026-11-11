@@ -1,4 +1,14 @@
 {
+  "rewrites": [
+    {
+      "source": "/joseph-weds-glory",
+      "destination": "/"
+    },
+    {
+      "source": "/joseph-weds-glory/:path*",
+      "destination": "/:path*"
+    }
+  ],
   "functions": {
     "api/rsvp.js": {
       "maxDuration": 10

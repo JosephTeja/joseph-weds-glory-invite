@@ -26,6 +26,10 @@ Without those environment variables, the page still loads but the RSVP endpoint 
 
 Import the repository in Vercel, use the project root as the root directory, leave the framework preset as **Other**, and leave the build command empty. Vercel serves `index.html`, `styles.css`, and `app.js`, and deploys `api/rsvp.js` as a function. Add the Supabase environment variables above and deploy. The generated `.vercel.app` URL can then be shared with guests; connect a custom domain if you prefer.
 
+## Use `www.joynin.in/joseph-weds-glory`
+
+Add `www.joynin.in` to this Vercel project's Settings → Domains, then add the exact DNS record Vercel requests to the `www` host in GoDaddy. `vercel.json` rewrites `/joseph-weds-glory` and its asset paths to this invite. The project root (`www.joynin.in/`) also serves the invite for now. DNS does not route URL paths; the Vercel rewrite handles the path.
+
 The wedding date and time are interpreted in India Standard Time for the countdown. Set each event time using the wedding venue's local clock.
 
 See [HOSTING-PLAN.md](HOSTING-PLAN.md) for the hosting setup, RSVP table, and launch steps.
