@@ -17,7 +17,7 @@ The edited couple photos are in `images/`. The homepage hero and gallery use tho
 1. Create a Supabase project.
 2. In its SQL Editor, run `supabase-schema.sql`.
 3. Deploy this folder to Vercel.
-4. In Vercel Project Settings → Environment Variables, set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` from the Supabase project settings. Keep the service-role key server-side; never add it to `app.js` or another public file.
+4. In Vercel Project Settings → Environment Variables, set `SUPABASE_URL` and `SUPABASE_SECRET_KEY` from the Supabase project settings. The secret key is used only by the serverless API; never add it to `app.js` or another public file. Existing deployments can keep using the legacy `SUPABASE_SERVICE_ROLE_KEY` until migrated.
 5. Redeploy after setting variables. Submit a test RSVP and check the `rsvps` table in Supabase.
 
 Without those environment variables, the page still loads but the RSVP endpoint explains that the RSVP book is being set up.

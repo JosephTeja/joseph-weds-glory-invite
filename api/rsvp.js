@@ -3,8 +3,9 @@ export default async function handler(request, response) {
   response.setHeader("Cache-Control", "no-store");
   if (request.method !== "POST") return response.status(405).json({ error: "Please send your RSVP using the form." });
 
-  const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY } = process.env;
-  if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
+  const { SUPABASE_URL, SUPABASE_SECRET_KEY, SUPABASE_SERVICE_ROLE_KEY } = process.env;
+  const supabaseKey = SUPABASE_SECRET_KEY || SUPABASE_SERVICE_ROLE_KEY;
+  if (!SUPABASE_URL || !supabaseKey) {
     return response.status(503).json({ error: "Our RSVP book is being set up. Please check back soon." });
   }
 
@@ -24,9 +25,19 @@ export default async function handler(request, response) {
     message: clean(body.message, 1000) || null,
   };
   try {
+    const headers = {
+      apikey: supabaseKey,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    };
+    // New sb_secret_ keys are API keys, not JWTs; send them only as `apikey`.
+    // Keep the Bearer header for backwards compatibility with legacy service_role JWTs.
+    if (!SUPABASE_SECRET_KEY && SUPABASE_SERVICE_ROLE_KEY) {
+      headers.Authorization = `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`;
+    }
     const result = await fetch(`${SUPABASE_URL.replace(/\/$/, "")}/rest/v1/rsvps`, {
       method: "POST",
-      headers: { apikey: SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+      headers,
       body: JSON.stringify(record),
     });
     if (!result.ok) {
