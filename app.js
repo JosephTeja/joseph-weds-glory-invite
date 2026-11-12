@@ -6,9 +6,8 @@ const invite = {
     { name: "The Reception", date: "2026-12-06", time: "4:00 PM", venue: "I Convention A/C", area: "AMEENPUR · TELANGANA", address: "Plot No. 2, Survey Nos. 465 & 466, ODF Colony, Ameenpur, Sangareddy, Hyderabad, Telangana 502032", photo: "images/i-convention-ac.png" },
   ],
   photos: [
-    { url: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=80", caption: "A favourite little moment" },
-    { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80", caption: "Us, being us" },
-    { url: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80", caption: "The best kind of forever" },
+    { url: "images/joseph-glory-cafe-memory.png", tag: "DATE NIGHT, EXTRA SMILES", title: "A table for two, please.", caption: "Good food is lovely. Sharing it with your favourite person is better." },
+    { url: "images/joseph-glory-shopping-memory.png", tag: "LITTLE ADVENTURES", title: "Just one more aisle…", caption: "Even the ordinary errands turn into our kind of fun." },
   ],
 };
 
@@ -38,8 +37,8 @@ document.getElementById("event-grid").innerHTML = invite.events.map((event, inde
   return `<article class="event-card"><div class="event-number">0${index + 1}</div>${visual}<div class="event-content"><p class="eyebrow">${index === 0 ? "A SACRED PROMISE" : "A JOYFUL GATHERING"}</p><h3>${escapeHtml(event.name)}</h3><div class="event-when"><span class="event-calendar" aria-hidden="true">♡</span><div><strong>${escapeHtml(event.date && formatDate(event.date))}</strong><span>${escapeHtml(event.time)}</span></div></div><div class="event-venue"><strong>${escapeHtml(event.venue)}</strong><span>${escapeHtml(event.address)}</span></div>${map}</div></article>`;
 }).join("");
 
-document.getElementById("gallery").innerHTML = invite.photos.map((photo) =>
-  `<div class="gallery-item" role="img" aria-label="${escapeAttr(photo.caption)}" data-label="${escapeAttr(photo.caption)}" style="background-image:url('${escapeAttr(photo.url)}')"></div>`
+document.getElementById("gallery").innerHTML = invite.photos.map((photo, index) =>
+  `<article class="memory-card memory-card-${index + 1}"><div class="memory-photo"><img src="${escapeAttr(photo.url)}" alt="Joseph and Glory: ${escapeAttr(photo.caption)}" loading="lazy" /><span class="memory-tag">${escapeHtml(photo.tag)}</span><span class="memory-heart" aria-hidden="true">♡</span></div><div class="memory-copy"><p class="memory-kicker">A LITTLE MOMENT, KEPT CLOSE</p><h3>${escapeHtml(photo.title)}</h3><p>${escapeHtml(photo.caption)}</p></div></article>`
 ).join("");
 
 function parseEventDate(date, time) {
