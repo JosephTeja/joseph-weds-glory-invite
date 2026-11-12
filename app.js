@@ -2,12 +2,13 @@
 const invite = {
   couple: ["Joseph", "Glory"],
   events: [
-    { name: "The Marriage", date: "2026-12-04", time: "10:00 AM", venue: "S Convention Hall", area: "PALAKOLLU · ANDHRA PRADESH", address: "Bypass Rd, beside HOTEL S-INN, Brodipet, Palakollu, Andhra Pradesh 534260", photo: "images/s-convention-hall.png" },
-    { name: "The Reception", date: "2026-12-06", time: "4:00 PM", venue: "I Convention A/C", area: "AMEENPUR · TELANGANA", address: "Plot No. 2, Survey Nos. 465 & 466, ODF Colony, Ameenpur, Sangareddy, Hyderabad, Telangana 502032", photo: "images/i-convention-ac.png" },
+    { name: "The Marriage", date: "2026-12-04", time: "12:00 PM", venue: "S Convention Hall", area: "PALAKOLLU · ANDHRA PRADESH", address: "Bypass Rd, beside HOTEL S-INN, Brodipet, Palakollu, Andhra Pradesh 534260", photo: "images/s-convention-hall.png" },
+    { name: "The Reception", date: "2026-12-06", time: "7:00 PM", venue: "I Convention A/C", area: "AMEENPUR · TELANGANA", address: "Plot No. 2, Survey Nos. 465 & 466, ODF Colony, Ameenpur, Sangareddy, Hyderabad, Telangana 502032", photo: "images/i-convention-ac.png" },
   ],
   photos: [
+    { url: "images/joseph-glory-first-date.png", tag: "OUR VERY FIRST DATE", title: "The first of so many favourites.", caption: "Two happy faces, a room full of hearts, and the first page of our story." },
     { url: "images/joseph-glory-cafe-memory.png", tag: "DATE NIGHT, EXTRA SMILES", title: "A table for two, please.", caption: "Good food is lovely. Sharing it with your favourite person is better." },
-    { url: "images/joseph-glory-shopping-memory.png", tag: "LITTLE ADVENTURES", title: "Just one more aisle…", caption: "Even the ordinary errands turn into our kind of fun." },
+    { url: "images/joseph-glory-sunlight.jpg", tag: "CAUGHT IN A LITTLE SUNSHINE", title: "A bright spot, together.", caption: "The sun made everything glow; being side by side made the moment ours." },
   ],
 };
 
@@ -38,7 +39,7 @@ document.getElementById("event-grid").innerHTML = invite.events.map((event, inde
 }).join("");
 
 document.getElementById("gallery").innerHTML = invite.photos.map((photo, index) =>
-  `<article class="memory-card memory-card-${index + 1}"><div class="memory-photo"><img src="${escapeAttr(photo.url)}" alt="Joseph and Glory: ${escapeAttr(photo.caption)}" loading="lazy" /><span class="memory-tag">${escapeHtml(photo.tag)}</span><span class="memory-heart" aria-hidden="true">♡</span></div><div class="memory-copy"><p class="memory-kicker">A LITTLE MOMENT, KEPT CLOSE</p><h3>${escapeHtml(photo.title)}</h3><p>${escapeHtml(photo.caption)}</p></div></article>`
+  `<article class="memory-card memory-card-${index + 1}"><div class="memory-photo memory-photo-${index + 1}"><img src="${escapeAttr(photo.url)}" alt="Joseph and Glory: ${escapeAttr(photo.caption)}" loading="lazy" /><span class="memory-tag">${escapeHtml(photo.tag)}</span><span class="memory-heart" aria-hidden="true">♡</span></div><div class="memory-copy"><p class="memory-kicker">A LITTLE MOMENT, KEPT CLOSE</p><h3>${escapeHtml(photo.title)}</h3><p>${escapeHtml(photo.caption)}</p></div></article>`
 ).join("");
 
 function parseEventDate(date, time) {
